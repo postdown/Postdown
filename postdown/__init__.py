@@ -8,5 +8,5 @@ from .ctor import MDDoc
 from .parser import parse
 
 __author__ = 'Titor'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 

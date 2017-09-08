@@ -1,0 +1,700 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Example-Collection",
+		"_postman_id": "614d90b6-9912-edde-c45d-1c8c69e41aaa",
+		"description": "## An example collection for postdown.\n\n*This example could show you what's the postdown could do.*",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "An example API with GET",
+			"request": {
+				"url": {
+					"raw": "http://0.0.0.0:8000/get/example?example-key=example-value",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"get",
+						"example"
+					],
+					"query": [
+						{
+							"key": "example-key",
+							"value": "example-value",
+							"equals": true,
+							"description": "example-description"
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "example-header",
+						"value": "example-header-value",
+						"description": "example-description"
+					}
+				],
+				"body": {},
+				"description": "### An example API.\n\nYou should write the detail about this API.\n\n**It's markdown supported.**"
+			},
+			"response": [
+				{
+					"id": "6e6a3e61-be83-487f-96ab-860587ef9d11",
+					"name": "This's a right way to use.",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/get/example?example-key=successful",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"get",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "successful",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "example-header",
+								"value": "example-header-value",
+								"description": "example-description",
+								"warning": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "23",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 27,
+					"body": "{\"result\":\"successful\"}"
+				},
+				{
+					"id": "79686ae9-3638-4bb7-9ee2-3b0cafae71d7",
+					"name": "This's the worry way to use.",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/get/example?example-key=unsuccessful",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"get",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "unsuccessful",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "example-header",
+								"value": "example-header-value",
+								"description": "example-description",
+								"warning": ""
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "25",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 26,
+					"body": "{\"result\":\"unsuccessful\"}"
+				}
+			]
+		},
+		{
+			"name": "An example API with POST",
+			"request": {
+				"url": {
+					"raw": "http://0.0.0.0:8000/post/example?example-key=example-value",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"post",
+						"example"
+					],
+					"query": [
+						{
+							"key": "example-key",
+							"value": "example-value",
+							"equals": true,
+							"description": "example-description"
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "example-header",
+						"value": "example-header-value",
+						"description": "example-description"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "example-key",
+							"value": "example-value",
+							"description": "example-description",
+							"type": "text"
+						}
+					]
+				},
+				"description": "### An example API.\n\nYou should write the detail about this API.\n\n**It's markdown supported.**"
+			},
+			"response": [
+				{
+					"id": "7afb1738-fc00-4198-877f-8888816dc216",
+					"name": "Successful Request",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/post/example?example-key=example-value",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"post",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "example-value",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "example-header",
+								"value": "example-header-value",
+								"description": "example-description",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "example-key",
+									"value": "successful",
+									"description": "example-description",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "25",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 29,
+					"body": "{\"result\":[\"successful\"]}"
+				},
+				{
+					"id": "9857b619-035e-4a44-b604-c6b54fd2d228",
+					"name": "Unsuccessful Requests",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/post/example?example-key=example-value",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"post",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "example-value",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "example-header",
+								"value": "example-header-value",
+								"description": "example-description",
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "example-key",
+									"value": "unsuccessful",
+									"description": "example-description",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "27",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 31,
+					"body": "{\"result\":[\"unsuccessful\"]}"
+				}
+			]
+		},
+		{
+			"name": "An example API with JSON",
+			"request": {
+				"url": {
+					"raw": "http://0.0.0.0:8000/json/example?example-key=example-value",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"json",
+						"example"
+					],
+					"query": [
+						{
+							"key": "example-key",
+							"value": "example-value",
+							"equals": true,
+							"description": "example-description"
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "example-key",
+						"value": "example-value",
+						"description": "example-description"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"example-key\": \"example-value\"\n}"
+				},
+				"description": "### An example API.\n\nYou should write the detail about this API.\n\n**It's markdown supported.**"
+			},
+			"response": [
+				{
+					"id": "913df8e3-a4c3-4356-bf09-a83ef7711810",
+					"name": "Successful Request",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/json/example?example-key=example-value",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"json",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "example-value",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "example-key",
+								"value": "example-value",
+								"description": "example-description",
+								"warning": ""
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"example-key\": \"successful\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "23",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 28,
+					"body": "{\"result\":\"successful\"}"
+				},
+				{
+					"id": "c07704f6-841a-46ae-99c3-dde25806a917",
+					"name": "Unsuccessful Request",
+					"originalRequest": {
+						"url": {
+							"raw": "http://0.0.0.0:8000/json/example?example-key=example-value",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8000",
+							"path": [
+								"json",
+								"example"
+							],
+							"query": [
+								{
+									"key": "example-key",
+									"value": "example-value",
+									"equals": true,
+									"description": "example-description"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "example-key",
+								"value": "example-value",
+								"description": "example-description",
+								"warning": ""
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"example-key\": \"unsuccessful\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "25",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "60",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 08:00:00 GMT+0800 (CST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "0.0.0.0",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "716446294",
+							"key": "pgv_pvid"
+						}
+					],
+					"responseTime": 37,
+					"body": "{\"result\":\"unsuccessful\"}"
+				}
+			]
+		}
+	]
+}

@@ -2,6 +2,13 @@ import json
 from .ctor import MDDoc
 
 
+def get_rows(raw, keys):
+    result = list()
+    for i in raw:
+        result.append([i[k] for k in keys])
+    return result
+
+
 def parse(in_file, out_file):
     doc = MDDoc()
 
@@ -19,20 +26,39 @@ def parse(in_file, out_file):
     for api in collection['item']:
         doc.title(api['name'], 2)
         request = api['request']
-        doc.code_block('{0[method]} {0[url]}'.format(request))
+        doc.code_block('{0[method]} {0[url][raw]}'.format(request))
         doc.block(request['description'])
         doc.hr()
 
         # Request information.
         doc.title('Request', 3)
-
         doc.comment_begin()
-        doc.bold('Request Header')
-        header_rows = [[i['key'], i['value'], i['description']] for i in request['header']]
-        doc.table(['Key', 'Value', 'Description'], header_rows)
-        doc.title('Request Body', 5)
-        if request['body']['mode'] == 'raw':
-            doc.code_block(request['body']['raw'])
+        doc.bold('Query')
+        rows = get_rows(
+            request['url']['query'],
+            ['key', 'value', 'description']
+        )
+        doc.table(['Key', 'Value', 'Description'], rows)
+
+        doc.bold('Header')
+        rows = get_rows(
+            request['header'],
+            ['key', 'value', 'description']
+        )
+        doc.table(['Key', 'Value', 'Description'], rows)
+
+        if request['body']:
+            doc.bold('Body')
+            if request['body']['mode'] in ['formdata', 'urlencoded']:
+                rows = get_rows(
+                    request['body'][request['body']['mode']],
+                    ['key', 'value', 'type', 'description']
+                )
+                doc.table(['Key', 'Value', 'Type', 'Description'], rows)
+            elif request['body']['mode'] == 'raw':
+                doc.code_block(request['body']['raw'])
+            elif request['body']['mode'] == 'file':
+                doc.text(request['body']['file']['src'])
 
         doc.comment_end()
 
@@ -42,11 +68,50 @@ def parse(in_file, out_file):
         for response in api['response']:
             doc.bold('Example: {0}'.format(response['name']))
             doc.comment_begin()
-            doc.bold('Response Header')
+
+            # Original Request
+            request = response['originalRequest']
+            doc.bold('Request')
+            doc.comment_begin()
+            doc.bold('Query')
+            rows = get_rows(
+                request['url']['query'],
+                ['key', 'value', 'description']
+            )
+            doc.table(['Key', 'Value', 'Description'], rows)
+
+            doc.bold('Header')
+            rows = get_rows(
+                request['header'],
+                ['key', 'value', 'description']
+            )
+            doc.table(['Key', 'Value', 'Description'], rows)
+
+            if request['body']:
+                doc.bold('Body')
+                if request['body']['mode'] in ['formdata', 'urlencoded']:
+                    rows = get_rows(
+                        request['body'][request['body']['mode']],
+                        ['key', 'value', 'type', 'description']
+                    )
+                    doc.table(['Key', 'Value', 'Type', 'Description'], rows)
+                elif request['body']['mode'] == 'raw':
+                    doc.code_block(request['body']['raw'])
+                elif request['body']['mode'] == 'file':
+                    doc.text(request['body']['file']['src'])
+
+            doc.comment_end()
+
+            # Response
+            doc.bold('Response')
+            doc.comment_begin()
+            doc.bold('Header')
             header_rows = [[i['key'], i['value']] for i in response['header']]
             doc.table(['Key', 'Value'], header_rows)
-            doc.bold('Response Body')
+            doc.bold('Body')
             doc.code_block(json.dumps(json.loads(response['body']), indent=2))
+            doc.comment_end()
+
             doc.comment_end()
         doc.comment_end()
         doc.hr()

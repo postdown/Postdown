@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 import sys
-import os
+from os.path import basename, splitext
 from postdown import parse
 
 if __name__ == '__main__':
     in_file = sys.argv[1]
-    out_file = sys.argv[2] if len(sys.argv) > 2 else os.path.basename(in_file) + '.md'
+
+    if len(sys.argv) > 2:
+        out_file = sys.argv[2]
+    else:
+        out_file = splitext(basename(in_file))[0] + '.md'
+
     parse(in_file, out_file)

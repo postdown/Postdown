@@ -34,14 +34,15 @@ class MDDoc:
 
     def table(self, columns_name, rows):
         self.line('|{0}|'.format('|'.join(columns_name)))
-        self.line('---'.join(list('|'*len(columns_name))))
+        self.line('-'.join(list('|'*(len(columns_name) + 1))))
         for i in rows:
             self.line('|{0}|'.format('|'.join(i)))
         self.br()
 
     def code_block(self, code, language=''):
         self.line('```{0}'.format(language))
-        self.line(code)
+        for i in code.split('\n'):
+            self.line(i.replace('\n', ''))
         self.line('```')
         self.br()
 
@@ -59,4 +60,8 @@ class MDDoc:
         self.br()
 
     def output(self):
+        self.hr()
+        self.block("Built with [Postdown][PyPI].")
+        self.block("Author: [Titor](https://github.com/TitorX)")
+        self.line('[PyPI]:    https://pypi.python.org/pypi/Postdown')
         return ''.join(self.md_struct)

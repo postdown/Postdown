@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 from postdown import __version__, __author__
 
 setup(
@@ -10,7 +10,7 @@ setup(
     package_data={
         'postdown': ['README.rst', 'LICENSE']
     },
-    scripts=['bin/postdown'],
+    entry_points={'console_scripts': ['postdown = postdown.cmdline:execute']},
     url='https://github.com/TitorX/Postdown',
     description='Generate markdown API document from Postman.',
     long_description=open('README.rst').read(),

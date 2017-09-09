@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 import sys
 from os.path import basename, splitext
-from postdown import parse
+from .parser import parse
 
-if __name__ == '__main__':
+
+def execute():
     in_file = sys.argv[1]
 
     if len(sys.argv) > 2:
@@ -12,3 +13,7 @@ if __name__ == '__main__':
         out_file = splitext(basename(in_file))[0] + '.md'
 
     parse(in_file, out_file)
+
+
+if __name__ == '__main__':
+    execute()

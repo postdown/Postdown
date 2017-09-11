@@ -45,12 +45,13 @@ def parse(in_file, out_file):
             )
             doc.table(['Key', 'Value', 'Description'], rows)
 
-        doc.bold('Header')
-        rows = get_rows(
-            request['header'],
-            ['key', 'value', 'description']
-        )
-        doc.table(['Key', 'Value', 'Description'], rows)
+        if request['header']:
+            doc.bold('Header')
+            rows = get_rows(
+                request['header'],
+                ['key', 'value', 'description']
+            )
+            doc.table(['Key', 'Value', 'Description'], rows)
 
         if request['body']:
             doc.bold('Body')
@@ -76,6 +77,13 @@ def parse(in_file, out_file):
 
             # Original Request
             request = response['originalRequest']
+
+            url = request['url']['raw'] if isinstance(request['url'], dict) \
+                else request['url']
+            doc.code_block(
+                '{0} {1}'.format(request['method'], url)
+            )
+
             doc.bold('Request')
             doc.comment_begin()
             if isinstance(request['url'], dict):
@@ -111,9 +119,9 @@ def parse(in_file, out_file):
             # Response
             doc.bold('Response')
             doc.comment_begin()
-            doc.bold('Header')
-            header_rows = [[i['key'], i['value']] for i in response['header']]
-            doc.table(['Key', 'Value'], header_rows)
+            # doc.bold('Header')
+            # header_rows = [[i['key'], i['value']] for i in response['header']]
+            # doc.table(['Key', 'Value'], header_rows)
             doc.bold('Body')
             doc.code_block(json.dumps(json.loads(response['body']), indent=2))
             doc.comment_end()

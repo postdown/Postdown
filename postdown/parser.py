@@ -26,19 +26,24 @@ def parse(in_file, out_file):
     for api in collection['item']:
         doc.title(api['name'], 2)
         request = api['request']
-        doc.code_block('{0[method]} {0[url][raw]}'.format(request))
+        url = request['url']['raw'] if isinstance(request['url'], dict) \
+            else request['url']
+        doc.code_block(
+            '{0} {1}'.format(request['method'], url)
+        )
         doc.block(request['description'])
         doc.hr()
 
         # Request information.
         doc.title('Request', 3)
         doc.comment_begin()
-        doc.bold('Query')
-        rows = get_rows(
-            request['url']['query'],
-            ['key', 'value', 'description']
-        )
-        doc.table(['Key', 'Value', 'Description'], rows)
+        if isinstance(request['url'], dict):
+            doc.bold('Query')
+            rows = get_rows(
+                request['url']['query'],
+                ['key', 'value', 'description']
+            )
+            doc.table(['Key', 'Value', 'Description'], rows)
 
         doc.bold('Header')
         rows = get_rows(
@@ -73,12 +78,13 @@ def parse(in_file, out_file):
             request = response['originalRequest']
             doc.bold('Request')
             doc.comment_begin()
-            doc.bold('Query')
-            rows = get_rows(
-                request['url']['query'],
-                ['key', 'value', 'description']
-            )
-            doc.table(['Key', 'Value', 'Description'], rows)
+            if isinstance(request['url'], dict):
+                doc.bold('Query')
+                rows = get_rows(
+                    request['url']['query'],
+                    ['key', 'value', 'description']
+                )
+                doc.table(['Key', 'Value', 'Description'], rows)
 
             doc.bold('Header')
             rows = get_rows(

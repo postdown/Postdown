@@ -34,9 +34,12 @@ class MDDoc:
 
     def table(self, columns_name, rows):
         self.line('|{0}|'.format('|'.join(columns_name)))
-        self.line('-'.join(list('|'*(len(columns_name) + 1))))
-        for i in rows:
-            self.line('|{0}|'.format('|'.join(i)))
+        self.line('---'.join(list('|'*(len(columns_name) + 1))))
+        if rows:
+            for i in rows:
+                self.line('|{0}|'.format('|'.join(i)))
+        else:
+            self.line('|'*(len(columns_name) + 1))
         self.br()
 
     def code_block(self, code, language=''):

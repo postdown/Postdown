@@ -38,6 +38,7 @@ def parse(in_file, out_file):
         doc.title('Request', 3)
         doc.comment_begin()
         if isinstance(request['url'], dict):
+            # Request Query
             doc.bold('Query')
             rows = get_rows(
                 request['url']['query'],
@@ -45,6 +46,7 @@ def parse(in_file, out_file):
             )
             doc.table(['Key', 'Value', 'Description'], rows)
 
+        # Request Header
         if request['header']:
             doc.bold('Header')
             rows = get_rows(
@@ -53,18 +55,24 @@ def parse(in_file, out_file):
             )
             doc.table(['Key', 'Value', 'Description'], rows)
 
+        # Request Body
         if request['body']:
-            doc.bold('Body')
-            if request['body']['mode'] in ['formdata', 'urlencoded']:
-                rows = get_rows(
-                    request['body'][request['body']['mode']],
-                    ['key', 'value', 'type', 'description']
-                )
-                doc.table(['Key', 'Value', 'Type', 'Description'], rows)
-            elif request['body']['mode'] == 'raw':
-                doc.code_block(request['body']['raw'])
-            elif request['body']['mode'] == 'file':
-                doc.text(request['body']['file']['src'])
+            content = request['body'][request['body']['mode']]
+            if request['body']['mode'] == 'file' and isinstance(content, dict):
+                content = content.get('src', '')
+
+            if content:
+                doc.bold('Body')
+                if request['body']['mode'] in ['formdata', 'urlencoded']:
+                    rows = get_rows(
+                        request['body'][request['body']['mode']],
+                        ['key', 'value', 'type', 'description']
+                    )
+                    doc.table(['Key', 'Value', 'Type', 'Description'], rows)
+                elif request['body']['mode'] == 'raw':
+                    doc.code_block(request['body']['raw'])
+                elif request['body']['mode'] == 'file':
+                    doc.text(request['body']['file']['src'])
 
         doc.comment_end()
 
@@ -78,12 +86,14 @@ def parse(in_file, out_file):
             # Original Request
             request = response['originalRequest']
 
+            # Request URL
             url = request['url']['raw'] if isinstance(request['url'], dict) \
                 else request['url']
             doc.code_block(
                 '{0} {1}'.format(request['method'], url)
             )
 
+            # Request Query
             doc.bold('Request')
             doc.comment_begin()
             if isinstance(request['url'], dict):
@@ -94,27 +104,40 @@ def parse(in_file, out_file):
                 )
                 doc.table(['Key', 'Value', 'Description'], rows)
 
-            doc.bold('Header')
-            rows = get_rows(
-                request['header'],
-                ['key', 'value', 'description']
-            )
-            doc.table(['Key', 'Value', 'Description'], rows)
+            # Request Header
+            if request['header']:
+                doc.bold('Header')
+                rows = get_rows(
+                    request['header'],
+                    ['key', 'value', 'description']
+                )
+                doc.table(['Key', 'Value', 'Description'], rows)
 
+            # Request Body
             if request['body']:
-                doc.bold('Body')
-                if request['body']['mode'] in ['formdata', 'urlencoded']:
-                    rows = get_rows(
-                        request['body'][request['body']['mode']],
-                        ['key', 'value', 'type', 'description']
-                    )
-                    doc.table(['Key', 'Value', 'Type', 'Description'], rows)
-                elif request['body']['mode'] == 'raw':
-                    doc.code_block(request['body']['raw'])
-                elif request['body']['mode'] == 'file':
-                    doc.text(request['body']['file']['src'])
+                content = request['body'][request['body']['mode']]
+                if request['body']['mode'] == 'file' and \
+                        isinstance(content, dict):
+                    content = content.get('src', '')
+
+                if content:
+                    doc.bold('Body')
+                    if request['body']['mode'] in ['formdata', 'urlencoded']:
+                        rows = get_rows(
+                            content,
+                            ['key', 'value', 'type', 'description']
+                        )
+                        doc.table(
+                            ['Key', 'Value', 'Type', 'Description'], rows
+                        )
+                    elif request['body']['mode'] == 'raw':
+                        doc.code_block(request['body']['raw'])
+                    elif request['body']['mode'] == 'file':
+                        doc.text(request['body']['file']['src'])
 
             doc.comment_end()
+
+            doc.hr()
 
             # Response
             doc.bold('Response')

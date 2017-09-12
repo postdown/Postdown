@@ -28,13 +28,13 @@ You should write the detail about this API.
 > **Query**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-key|example-value|example-description|
 > 
 > **Header**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-header|example-header-value|example-description|
 > 
 
@@ -44,33 +44,30 @@ You should write the detail about this API.
 > **Example: This's a right way to use.**
 > 
 > > 
+> > ```
+> > GET http://0.0.0.0:8000/get/example?example-key=successful
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|successful|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|23|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 
@@ -85,33 +82,30 @@ You should write the detail about this API.
 > **Example: This's the worry way to use.**
 > 
 > > 
+> > ```
+> > GET http://0.0.0.0:8000/get/example?example-key=unsuccessful
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|unsuccessful|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|25|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 
@@ -146,19 +140,19 @@ You should write the detail about this API.
 > **Query**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-key|example-value|example-description|
 > 
 > **Header**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-header|example-header-value|example-description|
 > 
 > **Body**
 > 
 > |Key|Value|Type|Description|
-> |-|-|-|-|
+> |---|---|---|---|
 > |example-key|example-value|text|example-description|
 > 
 
@@ -168,39 +162,36 @@ You should write the detail about this API.
 > **Example: Successful Request**
 > 
 > > 
+> > ```
+> > POST http://0.0.0.0:8000/post/example?example-key=example-value
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > > **Body**
 > > > 
 > > > |Key|Value|Type|Description|
-> > > |-|-|-|-|
+> > > |---|---|---|---|
 > > > |example-key|successful|text|example-description|
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|25|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 
@@ -217,39 +208,36 @@ You should write the detail about this API.
 > **Example: Unsuccessful Requests**
 > 
 > > 
+> > ```
+> > POST http://0.0.0.0:8000/post/example?example-key=example-value
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > > **Body**
 > > > 
 > > > |Key|Value|Type|Description|
-> > > |-|-|-|-|
+> > > |---|---|---|---|
 > > > |example-key|unsuccessful|text|example-description|
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|27|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 
@@ -286,13 +274,13 @@ You should write the detail about this API.
 > **Query**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-key|example-value|example-description|
 > 
 > **Header**
 > 
 > |Key|Value|Description|
-> |-|-|-|
+> |---|---|---|
 > |example-key|example-value|example-description|
 > |Content-Type|application/json||
 > 
@@ -311,19 +299,23 @@ You should write the detail about this API.
 > **Example: Successful Request**
 > 
 > > 
+> > ```
+> > POST http://0.0.0.0:8000/json/example?example-key=example-value
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > |Content-Type|application/json||
 > > > 
@@ -336,17 +328,10 @@ You should write the detail about this API.
 > > > ```
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|23|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 
@@ -361,19 +346,23 @@ You should write the detail about this API.
 > **Example: Unsuccessful Request**
 > 
 > > 
+> > ```
+> > POST http://0.0.0.0:8000/json/example?example-key=example-value
+> > ```
+> > 
 > > **Request**
 > > 
 > > > 
 > > > **Query**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > 
 > > > **Header**
 > > > 
 > > > |Key|Value|Description|
-> > > |-|-|-|
+> > > |---|---|---|
 > > > |example-key|example-value|example-description|
 > > > |Content-Type|application/json||
 > > > 
@@ -386,17 +375,10 @@ You should write the detail about this API.
 > > > ```
 > > > 
 > > 
+> > ----------------
+> > 
 > > **Response**
 > > 
-> > > 
-> > > **Header**
-> > > 
-> > > |Key|Value|
-> > > |-|-|
-> > > |connection|keep-alive|
-> > > |content-length|25|
-> > > |content-type|application/json|
-> > > |keep-alive|60|
 > > > 
 > > > **Body**
 > > > 

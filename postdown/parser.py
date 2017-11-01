@@ -5,7 +5,7 @@ from .ctor import MDDoc
 def get_rows(raw, keys):
     result = list()
     for i in raw:
-        result.append([i[k] for k in keys])
+        result.append([i.get(k, '') for k in keys])
     return result
 
 

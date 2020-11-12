@@ -1,4 +1,7 @@
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 class MDDoc:
 
@@ -27,7 +30,8 @@ class MDDoc:
         self.block(content)
 
     def hr(self):
-        self.block('----------------')
+        #self.block('----------------')
+        pass
 
     def title(self, content, level=1):
         self.block('#'*level + ' ' + content)
@@ -49,10 +53,20 @@ class MDDoc:
         self.line('```')
         self.br()
 
-    def comment_begin(self):
+    def comment_begin(self, origin=None):
+        if origin:
+            logger.debug('comment_begin: %s', origin)
+        else:
+            logger.debug('comment_begin')
+
         self.line(self.COMMENT_BEGIN_FLAG)
 
-    def comment_end(self):
+    def comment_end(self, origin=None):
+        if origin:
+            logger.debug('comment_end: %s', origin)
+        else:
+            logger.debug('comment_end')
+
         i = -1
         while True:
             if self.md_struct[i].startswith(self.COMMENT_BEGIN_FLAG):
@@ -64,7 +78,8 @@ class MDDoc:
 
     def output(self):
         self.hr()
-        self.block("Built with [Postdown][PyPI].")
-        self.block("Author: [Titor](https://github.com/TitorX)")
+        self.block("Generated with [Postdown][PyPI].")
+        # It is apprporiate that credit is given to the postman tool with a link to the original URL of Titor, but adding an author just makes it looks like Titor is the author of the API. 
+        #self.block("Author: [Titor](https://github.com/TitorX)")
         self.line('[PyPI]:    https://pypi.python.org/pypi/Postdown')
         return ''.join(self.md_struct)

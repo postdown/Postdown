@@ -1,12 +1,8 @@
 # Example-Collection
 
-----------------
-
 ## An example collection for postdown.
 
 *This example could show you what's the postdown could do.*
-
-----------------
 
 ## An example API with GET
 
@@ -19,8 +15,6 @@ GET http://0.0.0.0:8000/get/example?example-key=example-value
 You should write the detail about this API.
 
 **It's markdown supported.**
-
-----------------
 
 ### Request
 
@@ -64,8 +58,6 @@ You should write the detail about this API.
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -102,8 +94,6 @@ You should write the detail about this API.
 > > > |example-header|example-header-value|example-description|
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -118,8 +108,6 @@ You should write the detail about this API.
 > > 
 > 
 
-----------------
-
 ## An example API with POST
 
 ```
@@ -131,8 +119,6 @@ POST http://0.0.0.0:8000/post/example?example-key=example-value
 You should write the detail about this API.
 
 **It's markdown supported.**
-
-----------------
 
 ### Request
 
@@ -188,8 +174,6 @@ You should write the detail about this API.
 > > > |example-key|successful|text|example-description|
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -234,8 +218,6 @@ You should write the detail about this API.
 > > > |example-key|unsuccessful|text|example-description|
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -252,8 +234,6 @@ You should write the detail about this API.
 > > 
 > 
 
-----------------
-
 ## An example API with JSON
 
 ```
@@ -265,8 +245,6 @@ POST http://0.0.0.0:8000/json/example?example-key=example-value
 You should write the detail about this API.
 
 **It's markdown supported.**
-
-----------------
 
 ### Request
 
@@ -328,8 +306,6 @@ You should write the detail about this API.
 > > > ```
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -375,8 +351,6 @@ You should write the detail about this API.
 > > > ```
 > > > 
 > > 
-> > ----------------
-> > 
 > > **Response**
 > > 
 > > > 
@@ -391,12 +365,6 @@ You should write the detail about this API.
 > > 
 > 
 
-----------------
-
-----------------
-
-Built with [Postdown][PyPI].
-
-Author: [Titor](https://github.com/TitorX)
+Generated with [Postdown][PyPI].
 
 [PyPI]:    https://pypi.python.org/pypi/Postdown

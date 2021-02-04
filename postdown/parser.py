@@ -57,7 +57,7 @@ def parse_api(doc, api):
                 doc.table(['Key', 'Value', 'Description'], rows)
 
         # Request Header
-        if request['header']:
+        if 'header' in request:
             doc.bold('Header')
             rows = get_rows(
                 request['header'],
@@ -125,7 +125,7 @@ def parse_api(doc, api):
                         doc.table(['Key', 'Value', 'Description'], rows)
 
                 # Request Header
-                if request['header']:
+                if 'header' in request:
                     doc.bold('Header')
                     rows = get_rows(
                         request['header'],
@@ -159,7 +159,7 @@ def parse_api(doc, api):
                 doc.comment_end('Request Query')
                 doc.hr()
 
-            if response['body']:
+            if 'body' in response:
                 doc.bold('Response')
                 logger.info('Example Response')
                 #logger.debug('response body: % s', response['body'])
